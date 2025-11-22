@@ -30,96 +30,95 @@
 <body>
     <!-- Spinner Start -->
     <div id="loader"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+        class="show bg-white position-fixed translate-middle w-100 h-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;display: flex;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
     </div>
     <!-- Spinner End -->
-    <video autoplay muted loop playsinline class="bg-video">
-        <source src="videos/hero-section.mp4" type="video/mp4">
-    </video> 
     <div id="nav-backdrop" aria-hidden="true"></div>
     <!-- Navbar Start-->
-    <div class="container-fluid sticky-top">
-        <div class="container" style="z-index: 100;">             
-            <nav class="navbar navbar-expand-lg navbar-light border-2 ">
-                <img src="images/logo.svg" class="main-logo"></img>
-                <a href="index.html" class="navbar-brand" style="margin-bottom:1rem;">
+    <div class="container-fluid sticky-top top-0">
+        <nav class="navbar navbar-expand-lg navbar-light border-2">
+            <div style="display: flex; flex-direction: row;">
+                <img src="images/logo.svg" class="main-logo">
+                </img>
+                 <a href="index.html" class="navbar-brand" style="margin-bottom:1rem;">
                     <h1 style="color: var(--bs-primary);">HECLINE ENGINEERS</h1>
-                    <sub><span style="font-size: 0.9rem;display: flex;">ELECTRICAL ENGINEERS AND CONTRACTORS</span></sub>
+                    <sub><span>ELECTRICAL ENGINEERS AND CONTRACTORS</span></sub>
                 </a>
-                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
-                    data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <!-- mobile close button -->
-                    <button type="button" class="btn-close mobile-nav-close d-lg-none" aria-label="Close"></button>
-                     <div class="navbar-nav ms-auto">
-                         <button class="btn-close mobile-nav-close d-lg-none" aria-label="Close"></button> 
-                         <a href="index.html" class="nav-item nav-link active">Home</a>
-                         <a href="about.html" class="nav-item nav-link">About</a>
-                         <a href="service.html" class="nav-item nav-link">Services</a>
-                         <a href="project.html" class="nav-item nav-link">Features</a>
-                         <a href="feature.html" class="nav-item nav-link">Projects</a>
-                         <a href="team.html" class="nav-item nav-link">Gallery</a>
-                         <a href="contact.html" class="nav-item nav-link">Contact</a>
-                     </div>
-                 </div>
-            </nav>
-        </div>
+            </div>
+            <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="color: black !important;"></span>
+            </button>
+            <div class="collapse navbar-collapse ms-auto" id="navbarCollapse" style="justify-self: end;">
+                <!-- mobile close button -->
+                <div class="navbar-nav ms-auto">
+                    <button class="btn-close mobile-nav-close d-lg-none" aria-label="Close"></button>
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="service.html" class="nav-item nav-link">Services</a>
+                    <a href="project.html" class="nav-item nav-link">Features</a>
+                    <a href="feature.html" class="nav-item nav-link">Projects</a>
+                    <a href="team.html" class="nav-item nav-link">Gallery</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
     </div>
     <!-- Navbar End -->
 
 
     <!-- Hero Start -->
-    <div class="container-fluid pb-5 hero-section-header mb-5"> 
+    <div class="container-fluid pb-5 hero-section-header mb-5 flex-wrap">
+        <video autoplay muted loop playsinline class="bg-video">
+            <source src="videos/hero-section.mp4" type="video/mp4">
+        </video>
         <div class="container">
-            <div class="row g-5 align-items-center mb-4">
-                <div class="col-lg-6">
+            <div class="row g-5 align-items-center mb-4 hero-section-container">
+                <div class="col-lg-6 d-flex w-50 hero-section-items">
                     <div class="owl-carousel hero-section-carousel animated fadeIn">
                         <img class="img-fluid" src="images/hero-slider-1.jpg" alt="">
                         <img class="img-fluid" src="images/hero-slider-2.jpg" alt="">
                         <img class="img-fluid" src="images/hero-slider-3.jpg" alt="">
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 d-flex w-50 hero-section-items" style="flex:1 1 auto;">
                     <h1 class="display-1 mb-4 animated slideInRight">Powering Progress with <span
                             class="text-primary">Precision</span></h1>
                 </div>
             </div>
-            <div class="row g-5 animated fadeIn">
-                <div class="col-md-6 col-lg-3">
+            <div class="row g-5 animated fadeIn hero-section-items-2">
+                <div class="col-md-6 col-sm-4 col-lg-3 d-flex">
                     <div class="d-flex align-items-center">
                         <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
                             <i class="fa fa-robot text-primary"></i>
                         </div>
-                        <h5 class="lh-base mb-0">Energize</h5>
+                        <h5 class="lh-base mb-0" style="font-size: clamp(1rem,2vw,1.5rem);">Energize</h5>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-sm-4 col-lg-3 d-flex">
                     <div class="d-flex align-items-center">
                         <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
                             <i class="fa fa-robot text-primary"></i>
                         </div>
-                        <h5 class="lh-base mb-0">Sustainable Material</h5>
+                        <h5 class="lh-base mb-0" style="font-size: clamp(1rem,2vw,1.5rem);">Sustainable Material</h5>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-sm-4 col-lg-3 d-flex">
                     <div class="d-flex align-items-center">
                         <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
                             <i class="fa fa-robot text-primary"></i>
                         </div>
-                        <h5 class="lh-base mb-0">Innovative Architects</h5>
+                        <h5 class="lh-base mb-0" style="font-size: clamp(1rem,2vw,1.5rem);">Innovative Architects</h5>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-sm-4 col-lg-3 d-flex">
                     <div class="d-flex align-items-center">
                         <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
                             <i class="fa fa-robot text-primary"></i>
                         </div>
-                        <h5 class="lh-base mb-0">Budget Friendly</h5>
+                        <h5 class="lh-base mb-0" style="font-size: clamp(1rem,2vw,1.5rem);">Budget Friendly</h5>
                     </div>
                 </div>
             </div>
@@ -141,7 +140,8 @@
                         Electrical Contracting Company in Puducherry & TamilNadu. Our Core Strength lies in Supply &
                         Erection of
                         HT/LT Electrical Works,Electrical panel boards, Air Conditioning, LV System & CCTV. </p>
-                    <p class="mb-5">Our organization is well known in all the industry creating point of reference by followings work
+                    <p class="mb-5">Our organization is well known in all the industry creating point of reference by
+                        followings work
                         Standards and adapt latest technology as well as see the potential in implementing
                         environment beneficial technique in all our projects. </p>
                     <div class="row g-3">
@@ -154,8 +154,9 @@
                             <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Professional Staffs</h6>
                         </div>
                         <div class="col-sm-6">
-                            <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Electrical Maintenance Works</h6>
-                        </div>                        
+                            <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Electrical Maintenance Works
+                            </h6>
+                        </div>
                     </div>
                     <div class="d-flex align-items-center mt-5">
                         <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i

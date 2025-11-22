@@ -73,7 +73,10 @@
       // keep this in sync with the CSS transition (0.35s above) + small buffer
       var backdropFadeMs = 350;
       var openDelay = backdropFadeMs + 40;
-    
+      // helper that matches CSS breakpoint exactly
+      function isMobile() {
+        return window.matchMedia('(max-width: 767.98px)').matches;
+      }    
       function startCloseSequence() {
         if (!collapseEl.classList.contains('show')) {
           // no menu -> hide backdrop immediately
@@ -101,7 +104,7 @@
       }
     
       toggler.addEventListener('click', function (e) {
-        if (window.innerWidth > 768) return;
+        if (!isMobile()) return;
         e.preventDefault();
         if (!collapseEl.classList.contains('show')) {
           // fade in backdrop first, then show collapse
@@ -117,7 +120,7 @@
       closeBtns.forEach(function (btn) {
         btn.addEventListener('click', function (e) {
           e.preventDefault();
-          if (window.innerWidth > 768) return;
+          if (!isMobile()) return;
           startCloseSequence();
         });
       });
@@ -138,12 +141,12 @@
     
       // if collapse is shown programmatically ensure backdrop visible
       collapseEl.addEventListener('show.bs.collapse', function () {
-        if (window.innerWidth <= 768) backdrop.classList.add('visible');
+        if (isMobile()) backdrop.classList.add('visible');
       });
     
       // cleanup on resize
       window.addEventListener('resize', function () {
-        if (window.innerWidth > 768) {
+        if (!isMobile()) {
           backdrop.classList.remove('visible');
           if (collapseEl.classList.contains('show')) {
             try { bsCollapse.hide(); } catch (err) { collapseEl.classList.remove('show'); }

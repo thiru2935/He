@@ -43,6 +43,7 @@
 
 body {
     margin: 0;
+    padding: 0;
     font-family: "Open Sans", sans-serif;
     font-size: 1rem;
     font-weight: 400;
@@ -426,15 +427,9 @@ progress {
 }
 
 .display-1 {
-    font-size: calc(1.625rem + 4.5vw);
+    font-size:clamp(1.9rem, calc(1rem + 4.5vw),20vw);
     font-weight: 400;
-    line-height: 1.2
-}
-
-@media(min-width: 1200px) {
-    .display-1 {
-        font-size: 5rem
-    }
+    line-height: 1.2;
 }
 
 .display-2 {
@@ -542,7 +537,9 @@ progress {
 
 .img-fluid {
     max-width: 100%;
-    height: auto
+    height: auto;
+    display: flex;
+    flex: 1 1 700px;
 }
 
 .img-thumbnail {
@@ -4115,7 +4112,7 @@ textarea.form-control-lg {
     background-color: rgba(0, 0, 0, 0);
     border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 0px;
-    transition: box-shadow .15s ease-in-out
+    transition: box-shadow .15s ease-in-out;
 }
 
 @media(prefers-reduced-motion: reduce) {
@@ -6549,7 +6546,7 @@ textarea.form-control-lg {
 .sticky-top {
     position: sticky;
     top: 0;
-    z-index: 1020
+    z-index: 1020;
 }
 
 @media(min-width: 576px) {

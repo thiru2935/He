@@ -67,55 +67,59 @@
       var collapseEl = document.getElementById('navbarCollapse');
       var backdrop = document.getElementById('nav-backdrop');
       if (!toggler || !collapseEl || !backdrop || typeof bootstrap === 'undefined') return;
-    
+
       var bsCollapse = bootstrap.Collapse.getOrCreateInstance(collapseEl, { toggle: false });
-    
-      // keep this in sync with the CSS transition (0.35s above) + small buffer
-      var backdropFadeMs = 350;
+
+      var backdropFadeMs = 520;
       var openDelay = backdropFadeMs + 40;
-      // helper that matches CSS breakpoint exactly
+
       function isMobile() {
         return window.matchMedia('(max-width: 767.98px)').matches;
-      }    
+      }
+
       function startCloseSequence() {
         if (!collapseEl.classList.contains('show')) {
-          // no menu -> hide backdrop immediately
           backdrop.classList.remove('visible');
+          document.body.classList.remove('nav-open');
           return;
         }
         if (collapseEl.classList.contains('closing')) return;
         collapseEl.classList.add('closing');
-    
+
         var onEnd = function (e) {
           if (e && e.target !== collapseEl) return;
           collapseEl.removeEventListener('animationend', onEnd);
           collapseEl.classList.remove('closing');
           try { bsCollapse.hide(); } catch (err) { collapseEl.classList.remove('show'); }
+          document.body.classList.remove('nav-open');
         };
         collapseEl.addEventListener('animationend', onEnd);
-    
+
         // fallback
         setTimeout(function () {
           if (collapseEl.classList.contains('closing')) {
             collapseEl.classList.remove('closing');
             try { bsCollapse.hide(); } catch (err) { collapseEl.classList.remove('show'); }
+            document.body.classList.remove('nav-open');
           }
         }, 800);
       }
-    
+
       toggler.addEventListener('click', function (e) {
         if (!isMobile()) return;
         e.preventDefault();
         if (!collapseEl.classList.contains('show')) {
-          // fade in backdrop first, then show collapse
+          // fade in backdrop first, lock body scroll, then show collapse
           backdrop.classList.add('visible');
-          setTimeout(function () { bsCollapse.show(); }, openDelay);
+          document.body.classList.add('nav-open');
+          setTimeout(function () {
+             bsCollapse.show(); 
+            }, openDelay);
         } else {
           startCloseSequence();
         }
       });
-    
-      // all mobile close buttons
+
       var closeBtns = document.querySelectorAll('.mobile-nav-close');
       closeBtns.forEach(function (btn) {
         btn.addEventListener('click', function (e) {
@@ -124,36 +128,38 @@
           startCloseSequence();
         });
       });
-    
-      // clicking backdrop triggers same close sequence
+
       backdrop.addEventListener('click', function () {
         if (collapseEl.classList.contains('show')) startCloseSequence();
-        else backdrop.classList.remove('visible');
+        else {
+          backdrop.classList.remove('visible');
+          document.body.classList.remove('nav-open');
+        }
       });
-    
-      // AFTER bootstrap hides the collapse, start backdrop fade-out (use backdropFadeMs)
+
       collapseEl.addEventListener('hidden.bs.collapse', function () {
-        // allow small buffer then start fade-out; the CSS transition will animate opacity
         setTimeout(function () { backdrop.classList.remove('visible'); }, 10);
-        // optionally ensure complete removal after fade finishes
         setTimeout(function () { backdrop.style.pointerEvents = ''; }, backdropFadeMs + 60);
+        document.body.classList.remove('nav-open');
       });
-    
-      // if collapse is shown programmatically ensure backdrop visible
+
       collapseEl.addEventListener('show.bs.collapse', function () {
-        if (isMobile()) backdrop.classList.add('visible');
+        if (isMobile()) {
+          backdrop.classList.add('visible');
+          document.body.classList.add('nav-open');
+        }
       });
-    
-      // cleanup on resize
+
       window.addEventListener('resize', function () {
         if (!isMobile()) {
           backdrop.classList.remove('visible');
+          document.body.classList.remove('nav-open');
           if (collapseEl.classList.contains('show')) {
             try { bsCollapse.hide(); } catch (err) { collapseEl.classList.remove('show'); }
           }
         }
       });
-    }
+    }    
     // call on DOM ready
     document.addEventListener('DOMContentLoaded', function () {
       // ...existing init...

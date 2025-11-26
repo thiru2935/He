@@ -120,14 +120,7 @@
         }
       });
 
-      var closeBtns = document.querySelectorAll('.mobile-nav-close');
-      closeBtns.forEach(function (btn) {
-        btn.addEventListener('click', function (e) {
-          e.preventDefault();
-          if (!isMobile()) return;
-          startCloseSequence();
-        });
-      });
+
 
       backdrop.addEventListener('click', function () {
         if (collapseEl.classList.contains('show')) startCloseSequence();
@@ -159,6 +152,16 @@
           }
         }
       });
+      // single close button handler (no duplicate)
+      var closeBtns = document.querySelectorAll('.mobile-nav-close');
+      closeBtns.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation(); // prevent other listeners from interfering
+          if (!isMobile()) return;
+          startCloseSequence();
+        });
+      });      
     }    
     // call on DOM ready
     document.addEventListener('DOMContentLoaded', function () {

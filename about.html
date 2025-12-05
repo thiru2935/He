@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title></title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no, maximum-scale=1.0">    <meta content="" name="keywords">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
@@ -34,45 +34,45 @@
 <body>
     <!-- Spinner Start -->
     <div id="loader"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+        class="show bg-white position-fixed translate-middle w-100 h-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;display: flex;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
     </div>
     <!-- Spinner End -->
-
-    <!-- Navbar Start -->
-    <div class="container-fluid sticky-top">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light border-2">
-                <img src="images/logo.svg"
-                    style="display: flex;height:5rem;width:5rem;margin-right: 1rem; justify-items: center;object-fit: fill;"></img>
-                <a href="index.html" class="navbar-brand">
+    <div id="nav-backdrop" aria-hidden="true"></div>
+    <!-- Navbar Start-->
+    <div class="container-fluid sticky-top top-0">
+        <nav class="navbar navbar-expand-lg navbar-light border-3 border-white border-bottom ">
+            <div style="display: flex; flex-direction: row;" class="navbar-short">
+                <img src="images/logo.svg" class="main-logo">
+                </img>
+                 <a href="index.html" class="navbar-brand" style="margin-bottom:1rem;">
                     <h1 style="color: var(--bs-primary);">HECLINE ENGINEERS</h1>
-                    <sub><span style="font-size: small;display: flex;">ELECTRICAL ENGINEERS AND CONTRACTORS</span></sub>
+                    <sub><span>ELECTRICAL ENGINEERS AND CONTRACTORS</span></sub>
                 </a>
-                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
-                    data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link">Services</a>
-                        <a href="project.html" class="nav-item nav-link">Features</a>
-                        <a href="feature.html" class="nav-item nav-link">Projects</a>
-                        <a href="team.html" class="nav-item nav-link">Gallery</a>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
-                    </div>
+            </div>
+            <button type="button" class="navbar-toggler ms-auto me-0"  aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="color: black !important;"></span>
+            </button>
+            <div class="collapse navbar-collapse ms-auto" id="navbarCollapse" style="justify-self: end;">
+                <!-- mobile close button -->
+                <div class="navbar-nav" style="margin-left: auto;">
+                    <button  type="button"  class="btn-close mobile-nav-close d-lg-none" aria-label="Close"></button>
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link active">About</a>
+                    <a href="services.html" class="nav-item nav-link">Services</a>
+                    <a href="feature.html" class="nav-item nav-link">Features</a>
+                    <a href="project.html" class="nav-item nav-link">Projects</a>
+                    <a href="gallery.html" class="nav-item nav-link">Gallery</a>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </div>
     <!-- Navbar End -->
 
     <!-- Hero Start -->
-    <div class="container-fluid pb-5 bg-primary hero-header">
+    <div class="container-fluid pb-5  hero-section-header" style="background:url(images/hero-bg.jpg);">
         <div class="container py-5">
             <div class="row g-3 align-items-center">
                 <div class="col-lg-6 text-center text-lg-start">
@@ -82,7 +82,6 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center justify-content-lg-end mb-0">
                             <li class="breadcrumb-item"><a class="text-primary" href="index.html">Home</a></li>
-                            <li class="breadcrumb-item"><a class="text-primary" href="#!">Pages</a></li>
                             <li class="breadcrumb-item text-secondary active" aria-current="page">About</li>
                         </ol>
                     </nav>
@@ -104,21 +103,25 @@
                         Creation</h1>
                     <p class="mb-4">We M/S. HECLINE ENGINEERS have the pleasure to introduce ourselves has one of the
                         Emerging
-                        Trunkey Contracting Company in Puducherry & TamilNadu. Our Core Strength lies in Supply &
+                        Electrical Contracting Company in Puducherry & TamilNadu. Our Core Strength lies in Supply &
                         Erection of
-                        HT&LT Electrical Installation, Air Conditioning, LV System & CCTV. </p>
-                    <p class="mb-5">Our organization is well known in all the industry in and around Puducherry
-                        & Tamil Nadu for our standard, commitment, creating point of reference by followings work
+                        HT/LT Electrical Works,Electrical panel boards, Air Conditioning, LV System & CCTV. </p>
+                    <p class="mb-5">Our organization is well known in all the industry creating point of reference by
+                        followings work
                         Standards and adapt latest technology as well as see the potential in implementing
                         environment beneficial technique in all our projects. </p>
                     <div class="row g-3">
                         <div class="col-sm-6">
-                            <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Renovation</h6>
-                            <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Professional Staff</h6>
+                            <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Electrical Installation</h6>
+                            <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Shutdown works</h6>
                         </div>
                         <div class="col-sm-6">
-                            <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Connect</h6>
-                            <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Fair Prices</h6>
+                            <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Cost Effective</h6>
+                            <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Professional Staffs</h6>
+                        </div>
+                        <div class="col-sm-6">
+                            <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Electrical Maintenance Works
+                            </h6>
                         </div>
                     </div>
                     <div class="d-flex align-items-center mt-5">
@@ -146,8 +149,6 @@
         </div>
     </div>
     <!-- About End -->
-
-
 
 
 
@@ -255,54 +256,6 @@
     <!-- Team End -->
 
 
-    <!-- Feature Start -->
-    <div class="container-fluid py-5">
-        <div class="container">
-            <div class="text-center wow fadeIn" data-wow-delay="0.1s">
-                <h1 class="mb-5">Why People <span class="text-uppercase text-primary bg-light px-2">Choose Us</span>
-                </h1>
-            </div>
-            <div class="row g-5 align-items-center text-center">
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
-                    <i class="fa fa-calendar-alt fa-5x text-primary mb-4"></i>
-                    <h4>Proven Expertise</h4>
-                    <p class="mb-0">8+ years of hands-on experience in HT & LT Electrical Installations, HVAC, LV
-                        Systems, and CCTV solutions — we know our craft inside out."</p>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                    <i class="fa fa-tasks fa-5x text-primary mb-4"></i>
-                    <h4>End-to-End Turnkey Solutions</h4>
-                    <p class="mb-0">From design & consultancy to erection & commissioning — we handle every step, so you
-                        don’t have to juggle multiple vendors.</p>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                    <i class="fa fa-pencil-ruler fa-5x text-primary mb-4"></i>
-                    <h4>Innovative Team</h4>
-                    <p class="mb-0">4 specialized teams of experienced technicians with site supervisors to ensure
-                        flawless execution on every project.</p>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
-                    <i class="fa fa-user fa-5x text-primary mb-4"></i>
-                    <h4>Trusted by top clients</h4>
-                    <p class="mb-0">Our portfolio includes Coca-Cola, ICAR, Urban Health Centre, and many more — proving
-                        our capability and consistency</p>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                    <i class="fa fa-hand-holding-usd fa-5x text-primary mb-4"></i>
-                    <h4>Advanced Tools & Technology</h4>
-                    <p class="mb-0">Equipped with cutting-edge tools — from drilling machines to transformer oil
-                        filtration units — for precision & reliability</p>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                    <i class="fa fa-check fa-5x text-primary mb-4"></i>
-                    <h4>Commitment to Quality</h4>
-                    <p class="mb-0">Known across Puducherry & Tamil Nadu for our standards, safety practices, and timely
-                        project delivery.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Feature End -->
 
 
 
@@ -343,10 +296,10 @@
                             <a class="btn btn-link" href="index.html">Home</a>
                         </div>
                         <div class="col-6 col-lg-6 mb-2">
-                            <a class="btn btn-link" href="#!">Scope of Work</a>
+                            <a class="btn btn-link" href="feature.html">Scope of Work</a>
                         </div>
                         <div class="col-6 col-lg-6 mb-2">
-                            <a class="btn btn-link" href="#!">Services</a>
+                            <a class="btn btn-link" href="services.html">Services</a>
                         </div>
                         <div class="col-6 col-lg-6 mb-2">
                             <a class="btn btn-link" href="#!">Contact Us</a>
@@ -355,10 +308,10 @@
                             <a class="btn btn-link" href="about.html">About</a>
                         </div>
                         <div class="col-6 col-lg-6 mb-2">
-                            <a class="btn btn-link" href="#!">Gallery</a>
+                            <a class="btn btn-link" href="gallery.html">Gallery</a>
                         </div>
                         <div class="col-6 col-lg-6 mb-2">
-                            <a class="btn btn-link" href="#!">Projects</a>
+                            <a class="btn btn-link" href="project.html">Projects</a>
                         </div>
                     </div>
                 </div>
@@ -372,7 +325,7 @@
                     </div>
                     <div class="col-md-6 text-center text-md-end">
                         <div class="footer-menu">
-                            <a href="#!">Home</a>
+                            <a href="index.html">Home</a>
                             <a href="#!">Cookies</a>
                             <a href="#!">Help</a>
                             <a href="#!">FAQs</a>
@@ -383,6 +336,8 @@
         </div>
     </div>
     <!-- Footer End -->
+    <!-- Back to Top -->
+    <a href="#!" class="btn btn-lg btn-primary btn-lg-square btn-sm-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
 
@@ -394,8 +349,10 @@
     <script src="libraries/waypoints/waypoints.min.js"></script>
     <script src="libraries/owlcarousel/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.0/lottie.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Template Javascript -->
+    <script src="javascript/gallery.js" defer></script>
     <script src="javascript/contact.js" defer></script>
     <script src="javascript/timeline.js" defer></script>
     <script src="javascript/tools.js" defer></script>

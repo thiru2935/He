@@ -76,9 +76,12 @@
   color: var(--bs-dark);
 }
 
-.navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link.active {
-  color: var(--bs-primary)
+  color: var(--bs-light);
+  background:var(--bs-dark);
+  padding: 0 1rem !important;
+  border-radius:3px;
+
 }
 
 .navbar .dropdown-toggle::after {
@@ -93,7 +96,37 @@
 .navbar .dropdown-menu .dropdown-item:hover,
 .navbar .dropdown-menu .dropdown-item.active {
   color: var(--bs-white);
-  background: var(--bs-primary);
+}
+.navbar .navbar-nav .nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navbar .navbar-nav .nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 0;
+  background-color: var(--bs-dark);
+  border-radius: 2px;
+  transition: height 0.3s ease;
+  color:black;
+}
+
+.navbar .navbar-nav .nav-link:hover::before {
+  height: 24px;  /* Keep fixed height, don't expand to 100% */
+  width: 4px;    /* Keep narrow width */
+  background-color: var(--bs-dark); /* Change to primary color */
+}
+
+.navbar .navbar-nav .nav-link:hover {
+  color: var(--bs-light) !important;
+  padding: 0 1rem !important;
+  background-color: var(--bs-primary); /* Change to primary color */
+
 }
 
 @media (max-width: 991.98px) {
@@ -651,8 +684,10 @@ p {
 }
 
 .service-card {
+  display: flex;
   width: 92%;
   max-width: 340px;
+  height: 50%;
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -660,6 +695,7 @@ p {
   color: #fff;
   margin-bottom: 60px;
   transition: opacity 200ms linear 320ms, transform 200ms ease-out 320ms;
+  flex: 1 1 1000px;
 }
 
 .service-border {
@@ -676,14 +712,19 @@ p {
 
 .service-card h1 {
   position: relative;
-  padding: 190px 0px 100px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 190px 10px 100px 10px;
   width: 90%;
   transform: translate3d(20%, 0px, 0px);
   transition: opacity 200ms linear 120ms, transform 200ms ease-in 120ms;
+  font-size: clamp(1.5rem, 2vw, 2.5rem);
+  flex: 1 1 1000px;
+  left: -20%;
 }
 
 .service-card>img {
-  width: 90%;
+  width: clamp(10rem, 90%, 1200px);
   position: absolute;
   top: -6%;
   left: -6%;
@@ -706,7 +747,7 @@ p {
   background-color: #888DA7;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .card-column {
     width: 90%;
   }
@@ -718,6 +759,10 @@ p {
   .open-content img {
     margin-top: 40px;
   }
+
+  .service-card h1 {
+    margin-top: 2rem;
+  }
 }
 
 
@@ -726,6 +771,8 @@ p {
 .services {
   margin-inline: max(0px, ((100% - 400px) / 2));
   font: 90%/1.4 system-ui;
+  margin: auto;
+  max-width: clamp(15rem, 30%, 30rem) !important;
 }
 
 .services-cards {
@@ -734,8 +781,9 @@ p {
   padding: 1.5rem;
   box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.781);
   border-radius: 4px;
-  height: 30rem;
-  width: 50rem;
+  height: clamp(25rem, 30rem, 35rem);
+  width: clamp(20rem, 45rem, 55rem);
+  flex: 1 1 1000px !important;
 }
 
 .services-cards:nth-child(1) {
@@ -745,62 +793,62 @@ p {
 
 .services-cards:nth-child(2) {
   top: 8rem;
-  rotate: 2deg;
+  rotate: 1.5deg;
 }
 
 .services-cards:nth-child(3) {
   top: 9rem;
-  rotate: 3deg;
+  rotate: 2deg;
 }
 
 .services-cards:nth-child(4) {
   top: 10rem;
-  rotate: 4deg;
+  rotate: 2.5deg;
 }
 
 .services-cards:nth-child(5) {
   top: 11rem;
-  rotate: 5deg;
+  rotate: 3deg;
 }
 
 .services-cards:nth-child(6) {
   top: 12rem;
-  rotate: 6deg;
+  rotate: 3.5deg;
 }
 
 .services-cards:nth-child(7) {
   top: 13rem;
-  rotate: 7deg;
+  rotate: 4deg;
 }
 
 .services-cards:nth-child(8) {
   top: 14rem;
-  rotate: 8deg;
+  rotate: 4.5deg;
 }
 
 .services-cards:nth-child(9) {
   top: 15rem;
-  rotate: 9deg;
+  rotate: 5deg;
 }
 
 .services-cards:nth-child(10) {
   top: 16rem;
-  rotate: 10deg;
+  rotate: 5.5deg;
 }
 
 .services-cards:nth-child(11) {
   top: 17rem;
-  rotate: 11deg;
+  rotate: 6deg;
 }
 
 .services-cards:nth-child(12) {
   top: 18rem;
-  rotate: 12deg;
+  rotate: 6.5deg;
 }
 
 .services-cards:nth-child(13) {
   top: 19rem;
-  rotate: 13deg;
+  rotate: 7deg;
 }
 
 .tree,
@@ -808,6 +856,7 @@ p {
 .tree:after {
   box-sizing: border-box;
   display: flex;
+
 }
 
 .tree ul {
@@ -820,6 +869,8 @@ p {
   font-weight: bolder;
   display: flex;
   flex-wrap: wrap;
+  flex: 1 1 1000px;
+
 }
 
 .tree ul:after {
@@ -925,10 +976,10 @@ p {
 
 /**tools**/
 .holderCircle {
-  width: 500px;
-  height: 500px;
+  width: clamp(16rem, 50vw, 32rem) !important;
+  height: clamp(16rem, 50vw, 32rem) !important;
   border-radius: 100%;
-  margin: 60px auto;
+  margin: clamp(1rem, 4vw, 3.75rem) auto;
   position: relative;
 }
 
@@ -948,8 +999,8 @@ p {
 
 .dotCircle .itemDot {
   display: block;
-  width: 80px;
-  height: 80px;
+  width: clamp(2.5rem, 8vw, 5rem);
+  height: clamp(2.5rem, 8vw, 5rem);
   position: absolute;
   background: #ffffff;
   color: #7d4ac7;
@@ -962,9 +1013,18 @@ p {
   border: 2px solid #a79a9a;
 }
 
+.dotCircle .itemDot i {
+  display: flex;
+  justify-self: center;
+  margin: clamp(0.2rem, 1vw, 1rem) clamp(0.2rem, 1vw, 1rem);
+  height: clamp(0.3rem, 2vw, 3rem);
+  width: clamp(0.3rem, 2vw, 3rem);
+  object-fit: cover;
+}
+
 .dotCircle .itemDot .forActive {
-  width: 56px;
-  height: 56px;
+  width: clamp(2rem, 5vw, 3.5rem);
+  height: clamp(2rem, 5vw, 3.5rem);
   position: absolute;
   top: 0;
   left: 0;
@@ -1003,13 +1063,14 @@ p {
 
 .round {
   position: absolute;
-  left: 40px;
-  top: 45px;
-  width: 410px;
-  height: 410px;
+  left: clamp(1rem, 5vw, 3rem);
+  top: clamp(1.5rem, 5vw, 2.7rem);
+  width: clamp(13.4rem, 42vw, 26rem);
+  height: clamp(13.4rem, 42vw, 26rem);
   border: 2px dotted #a733bb;
   border-radius: 100%;
-  -webkit-animation: rotation 100s infinite linear;
+  animation: rotation 100s infinite linear;
+  flex: 1 1 1000px;
 }
 
 .dotCircle .itemDot:hover,
@@ -1034,15 +1095,19 @@ p {
 }
 
 .dotCircle .itemDot {
-  font-size: 40px;
+  font-size: clamp(1.3rem, 3vw, 2.5rem);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  justify-self: center;
 }
 
 .contentCircle {
-  width: 250px;
+  width: clamp(10rem, 20vw, 15.625rem);
   border-radius: 100%;
   color: #222222;
   position: relative;
-  top: 150px;
+  top: clamp(6rem, 15vw, 9.375rem);
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -1057,13 +1122,15 @@ p {
   opacity: 0;
   transform: scale(0);
   transition: 0.5s;
-  font-size: 15px;
+  font-size: 9px;
   width: 100%;
   height: 100%;
   top: 0;
   right: 0;
   margin: auto;
   line-height: 250px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .CirItem.active {
@@ -1074,7 +1141,7 @@ p {
 }
 
 .contentCircle .CirItem i {
-  font-size: 180px;
+  font-size: clamp(6rem, 15vw, 11.25rem);
   position: absolute;
   top: 0;
   left: 50%;
@@ -1083,26 +1150,15 @@ p {
   opacity: 0.1;
 }
 
-@media only screen and (min-width:300px) and (max-width:599px) {
-  .holderCircle {
-    /* width: 300px; height: 300px;*/
-    margin: 110px auto;
+@media only screen and (max-width:768px) {
+  .contentCircle .CirItem i {
+    margin-left: -4rem;
+  }
+  .title-box .title{
+    text-align: center;
+    margin:auto;
   }
 
-  .holderCircle::after {
-    width: 100%;
-    height: 100%;
-  }
-
-  .dotCircle {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-  }
 }
 
 @media only screen and (min-width:600px) and (max-width:767px) {}
@@ -1118,6 +1174,7 @@ p {
   letter-spacing: 2px;
   position: relative;
   z-index: -1;
+  font-size: clamp(0.5rem, 1.2vw, 3rem);
 }
 
 .title-box span {
@@ -1127,8 +1184,9 @@ p {
 }
 
 .title-box p {
-  font-size: 17px;
+  font-size: clamp(0.5rem, 1vw, 1rem);
   line-height: 2em;
+  margin: auto;
 }
 
 
@@ -1254,6 +1312,357 @@ p {
 }
 
 
+
+/**project**/
+.ol-days,
+.ol-days * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.ol-days {
+	width: max-content;
+	width: 70%;
+	margin-inline: auto;
+
+	display: flex;
+	flex-direction: column;
+	gap: 0.25em;
+	font-size: clamp(1rem, 5vw, 2rem);
+	color: hsl(0, 0%, 90%);
+
+	list-style: none;
+	counter-reset: ol-days-counter;
+}
+.ol-days > li {
+	counter-increment: ol-days-counter;
+	padding-inline: 1em;
+	display: grid;
+	grid-template-columns: min-content min-content auto;
+	align-items: center;
+	background: linear-gradient(
+			hsla(0 0% 100% / 0.2),
+			transparent 50%,
+			hsla(0 0% 0% / 0.3)
+		),
+		var(--clr_bg);
+	text-align: center;
+	transition: transform 250ms ease;
+	cursor: default;
+	text-shadow: 0 0 5px hsla(0 0% 50% / 0.75);
+}
+.ol-days > li:hover {
+	transform: scale(1.05);
+}
+
+.ol-days > li::before,
+.ol-days > li::after {
+	display: grid;
+	align-items: center;
+	grid-row: 1;
+	text-align: left;
+}
+.ol-days > li::before {
+	content: var(--month);
+	grid-column: 1;
+	padding-inline-end: 0.25em;
+}
+.ol-days > li::after {
+	content: counter(ol-days-counter, decimal-leading-zero);
+	grid-column: 2;
+	width: 1.75em;
+	height: 2em;
+	background-image: linear-gradient(
+			90deg,
+			rgba(0, 0, 0, 0.3),
+			rgba(0, 0, 0, 0) 25%
+		),
+		radial-gradient(
+			circle at 0.125em center,
+			var(--clr_accent) 1.25em,
+			transparent calc(1.25em + 1px)
+		);
+	padding-inline-start: 0.1em;
+}
+.ol-days > li:nth-child(even)::before {
+	padding-inline-start: 1.25em;
+}
+
+.ol-days > li:nth-child(6n + 1) {
+	--clr_bg: #2e2b3c;
+	--clr_accent: #fb6767;
+}
+.ol-days > li:nth-child(6n + 2) {
+	--clr_bg: #47505f;
+	--clr_accent: #c14755;
+}
+.ol-days > li:nth-child(6n + 3) {
+	--clr_bg: #37aa8d;
+	--clr_accent: #a1cc6f;
+}
+.ol-days > li:nth-child(6n + 4) {
+	--clr_bg: #8fb568;
+	--clr_accent: #566574;
+}
+.ol-days > li:nth-child(6n + 5) {
+	--clr_bg: #24b8b8;
+	--clr_accent: #c4b36a;
+}
+.ol-days > li:nth-child(6n + 6) {
+	--clr_bg: #fc6868;
+	--clr_accent: #2e2b3c;
+}
+
+
+/**gallery**/
+.photo-gallery{
+  display:grid;
+  place-content:center;
+  min-height:50vh;
+  overflow:hidden;
+}
+
+.w {
+  width:100vmin;
+  height:100vmin;
+}
+
+.ts {
+  width:100%; height:100%;
+  position:relative;
+  --barH:15%;/*active zone height = 100% - barH*/
+}
+
+.t {
+  --w:50%;
+  display:block; width:var(--w); height:var(--barH);
+  position:absolute; bottom:0; left:var(--l);
+  transform-origin:top left;
+}
+
+.t img {
+  display:block; width:100%; height:100%;
+  -o-object-fit:cover;
+     object-fit:cover;
+  transform:scale(0.8);
+}
+
+[type="radio"] { 
+  display:none; 
+}
+
+:checked + label.t {
+  left:0; bottom:var(--barH);
+  height:calc(100% - var(--barH));
+}
+
+:checked + label.t img {
+  -o-object-fit:contain;
+     object-fit:contain;
+}
+
+/* 
+optional
+*/
+
+.ts {/*thumbnails bar*/
+  perspective:100px;
+  perspective-origin:center center;
+  transform-style:preserve-3d;
+  pointer-events:none;
+}
+
+.ts:after {/*the plate*/
+  content:"";
+  display:block; width:100%; height:15px;
+  position:absolute; bottom:0;
+  background:linear-gradient(transparent 10%, rgba(0, 0, 0, 0.592));
+  transform:rotateX(90deg)scaleX(1.2);
+  transform-origin:bottom center;
+}
+
+:not(:checked) + .t {/*inactive labels*/
+  transform:translate3d(0, 0, -5px);
+  pointer-events:auto;
+}
+
+:not(:checked) + .t:hover {
+  transform:translate3d(0, -7px, -5px);
+  box-shadow:0 30px 30px -25px rgba(0,0,0,0.3);
+  cursor:pointer;
+}
+
+:not(:checked) + .t img {
+  transform:scale(0.9);/*create gaps*/
+}
+
+:checked + .t {/*active label*/
+  box-shadow:0 0 0 transparent;
+  -webkit-animation:anim 2s 1;
+          animation:anim 2s 1;
+} @-webkit-keyframes anim {
+  from { transform:rotateY(6deg)rotateX(3deg) }
+} @keyframes anim {
+  from { transform:rotateY(6deg)rotateX(3deg) }
+}
+
+/* 
+transitions
+*/
+.t {/*active->inactive & hover->rest*/
+  transition:transform 0.5s, bottom 0.6s, left 0.6s, width 0.3s, box-shadow 1s;
+}
+.t:hover, :checked + .t {
+  transition:transform 0.5s, bottom 0.6s, left 0.6s, width 0.3s, box-shadow 0s;
+}
+
+
+
+/***expanded gallery**/
+.hello {
+  opacity: 1 !important;
+}
+.full {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.full .content {
+  background-color: rgba(0,0,0,0.75) !important;
+  height: 100%;
+  width: 100%;
+  display: grid;
+}
+.full .content img {
+  left: 50%;
+  transform: translate3d(0, 0, 0);
+  animation: zoomin 1s ease;
+  max-width: 50%;
+  max-height: 50%;
+  margin: auto;
+}
+
+.gallery {
+  display: grid;
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-auto-rows: 5rem;
+  padding:1rem;
+}
+.gallery img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 16px #333;
+  transition: all 1.5s ease;
+}
+.gallery img:hover {
+  box-shadow: 0 0 32px #333;
+}
+.gallery .content {
+  padding: 4px;
+}
+.gallery .gallery-item {
+  transition: grid-row-start 300ms linear;
+  transition: transform 300ms ease;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+.gallery .gallery-item:hover {
+  transform: scale(1.025);
+}
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  }
+}
+@media (max-width: 400px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+  }
+}
+@-moz-keyframes zoomin {
+  0% {
+    max-width: 50%;
+    transform: rotate(-30deg);
+    filter: blur(4px);
+  }
+  30% {
+    filter: blur(4px);
+    transform: rotate(-80deg);
+  }
+  70% {
+    max-width: 50%;
+    transform: rotate(45deg);
+  }
+  100% {
+    max-width: 100%;
+    transform: rotate(0deg);
+  }
+}
+@-webkit-keyframes zoomin {
+  0% {
+    max-width: 50%;
+    transform: rotate(-30deg);
+    filter: blur(4px);
+  }
+  30% {
+    filter: blur(4px);
+    transform: rotate(-80deg);
+  }
+  70% {
+    max-width: 50%;
+    transform: rotate(45deg);
+  }
+  100% {
+    max-width: 100%;
+    transform: rotate(0deg);
+  }
+}
+@-o-keyframes zoomin {
+  0% {
+    max-width: 50%;
+    transform: rotate(-30deg);
+    filter: blur(4px);
+  }
+  30% {
+    filter: blur(4px);
+    transform: rotate(-80deg);
+  }
+  70% {
+    max-width: 50%;
+    transform: rotate(45deg);
+  }
+  100% {
+    max-width: 100%;
+    transform: rotate(0deg);
+  }
+}
+@keyframes zoomin {
+  0% {
+    max-width: 50%;
+    transform: rotate(-30deg);
+    filter: blur(4px);
+  }
+  30% {
+    filter: blur(4px);
+    transform: rotate(-80deg);
+  }
+  70% {
+    max-width: 50%;
+    transform: rotate(45deg);
+  }
+  100% {
+    max-width: 100%;
+    transform: rotate(0deg);
+  }
+}
+
+
+
 /*** Testimonial ***/
 .testimonial-img {
   position: relative;
@@ -1352,7 +1761,7 @@ p {
   }
 }
 
-/**conatct**/
+/**conatct
 .frame {
   width: 600px;
   height: 350px;
@@ -1523,7 +1932,6 @@ p {
 
 input:focus:invalid,
 textarea:focus:invalid {
-  /* when a field is considered invalid by the browser */
   background: #fff url(images/invalid.png) no-repeat 98% center;
   box-shadow: 0 0 5px #d45252;
   border: 1px solid #b03535;
@@ -1531,7 +1939,6 @@ textarea:focus:invalid {
 
 input:required:valid,
 textarea:required:valid {
-  /* when a field is considered valid by the browser */
   background: #fff url(images/valid.png) no-repeat 98% center;
   box-shadow: 0 0 5px #5cd053;
   border-color: #28921f;
@@ -1589,6 +1996,7 @@ textarea:required:valid {
   }
 }
 
+**/
 
 
 
@@ -1643,14 +2051,10 @@ textarea:required:valid {
   border-right: none;
 }
 
-/*responsive */
 
-
-/*spinner*/
-/* ...existing code... */
 
 /* Responsive loader for phones/tablets */
-@media (min-width: 600px) {
+@media (max-width: 768px) {
 
   /* keep overlay full-screen but reduce padding so content not cramped */
   #loader {
@@ -1660,7 +2064,6 @@ textarea:required:valid {
     padding: 0.5rem;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.95);
-    width: 100%;
     /* slightly translucent if needed */
   }
 
@@ -1684,264 +2087,350 @@ textarea:required:valid {
 
 }
 
-/* ...existing code... */
+/* Add at the end of the file, before closing brace */
 
-/* navbar*/
-/* ...existing code... */
+@media (max-width: 990px) {
 
-
-/* ...existing code... */
-
-@media (max-width: 768px) {
-
-  /* ...existing code... */
-  .navbar {
-    display: flex;
-    padding: 0.4rem !important;
-    margin: 0.5rem;
-    width: 100% !important;
-  }
-  body.nav-open {
+  /* Lock page scroll when nav open */
+  .nav-open {
     overflow: hidden !important;
-    touch-action: none !important;
-    position: relative; /* avoid jump on some mobile browsers */
-  }  
-  /* keep brand/header visible above the mobile overlay */
-  .navbar-short,
-  .navbar,
-  .navbar-brand {
-    position: relative;
-    z-index: 1085; /* above the navbar-collapse overlay (1060) */
+
   }
 
-  /* helper class to hide the toggler while the menu is open */
-  .navbar-toggler.hidden {
-    display: none !important;
-    pointer-events: none;
-  }
-
-  /* brand: keep inline, reduce sizes and spacing */
-
-
-  /* ensure toggler remains visible and brand doesn't wrap */
-  .navbar-toggler {
-    margin-left: auto;
-  }
-
-  /* nicer backdrop */
+  /* Backdrop: animates first on entrance */
   #nav-backdrop {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0);
-    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1050;
     pointer-events: none;
-    opacity: 0;
-    transition: opacity .28s cubic-bezier(.2, .8, .2, 1), backdrop-filter .28s ease;
-    will-change: opacity, backdrop-filter;
-    backdrop-filter: blur(0px) saturate(100%);
   }
 
+  /* Backdrop entrance animation */
   #nav-backdrop.visible {
-    pointer-events: auto;
-    opacity: 1;
-    backdrop-filter: blur(6px) saturate(120%);
     background: rgba(0, 0, 0, 0.45);
-    -webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  }
-
-  /* overlay panel: slide + subtle scale */
-  .navbar-collapse {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    transform: translateY(-18px) scaleY(.985);
-    transform-origin: top center;
-    transition: transform .42s cubic-bezier(.2, .8, .2, 1), opacity .32s ease;
-    transition-delay: 0s;
-    background: rgba(255, 255, 255, 0.98);
-    padding: 1rem 1.25rem;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    z-index: 1065;
-    height: 100vh;
-    overflow-y: auto;
-    opacity: 0;
-    will-change: transform, opacity;
-    justify-self:start!important;
-    margin: 0!important;
-    display: flex;
-    width: 100vw;
-    max-height: none !important; /* avoid internal scroll unless you intentionally want it */
-    overflow: hidden !important;  /* prevent navbar-collapse from scrolling the page */
-    touch-action: none;    
-  }
-  .navbar-nav{
-    justify-self: start;
-    margin-left: 0!important;
-  }
-  /* show state */
-  .navbar-collapse .show {
-    -webkit-animation: slide-in-right 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    animation: slide-in-right 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     opacity: 1;
-    animation-delay:1s;
+    visibility: visible;
+    pointer-events: auto;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    animation: backdrop-slide-in 0.4s ease-out forwards;
   }
 
-  @-webkit-keyframes slide-in-right {
-    0% {
-      -webkit-transform: translateX(1000px);
-      transform: translateX(1000px);
+  /* Backdrop exit animation */
+  #nav-backdrop.exit {
+    animation: backdrop-slide-out 0.4s ease-in forwards;
+  }
+
+  /* Backdrop entrance keyframes */
+  @keyframes backdrop-slide-in {
+    from {
       opacity: 0;
+      visibility: hidden;
     }
 
-    100% {
-      -webkit-transform: translateX(0);
-      transform: translateX(0);
+    to {
       opacity: 1;
+      visibility: visible;
     }
   }
 
-  @keyframes slide-in-right {
-    0% {
-      -webkit-transform: translateX(1000px);
-      transform: translateX(1000px);
+  /* Backdrop exit keyframes */
+  @keyframes backdrop-slide-out {
+    from {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    to {
       opacity: 0;
-    }
-
-    100% {
-      -webkit-transform: translateX(0);
-      transform: translateX(0);
-      opacity: 1;
+      visibility: hidden;
     }
   }
 
-  /* avoid height animation conflicts with Bootstrap */
-  .navbar-collapse.collapsing {
-    height: auto !important;
+  /* Navbar: keep on top of collapse panel */
+  .sticky-top,
+  .navbar {
+    z-index: 1200 !important;
+    position: sticky !important;
+    top: 0 !important;
+  }
+
+  /* navbar-short (logo + brand) stays visible */
+  .navbar-short {
+    z-index: 1200 !important;
+    position: sticky;
+  }
+
+  /* White full-screen panel below navbar */
+  .navbar-collapse {
+    position: fixed !important;
+    inset: 0 0 0 0 !important;
+    padding-top: var(--navbar-height, 80px) !important;
+    box-sizing: border-box !important;
+    background: #fff !important;
+    z-index: 1095 !important;
     overflow: hidden !important;
-    transition: none !important;
-    transform: translateY(-18px) scaleY(.985) !important;
-    opacity: 0 !important;
+    display: none !important;
+    height: 100vh !important;
+    width: 100vw !important;
   }
 
-  /* nav links: fade + lift with stagger */
-  .navbar-collapse .navbar-nav .nav-link {
-    display: block;
+  /* Collapse entrance animation (after backdrop) */
+  .navbar-collapse.show {
+    display: flex !important;
+    flex-direction: column;
+    animation: collapse-slide-in 0.56s cubic-bezier(0.22, 0.9, 0.35, 1) forwards;
+  }
+
+  /* Collapse exit animation */
+  .navbar-collapse.exit {
+    animation: collapse-slide-out 0.48s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
+  }
+
+  /* Collapse entrance keyframes */
+  @keyframes collapse-slide-in {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  /* Collapse exit keyframes */
+  @keyframes collapse-slide-out {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    to {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+
+  /* Scrollable nav content */
+  .navbar-collapse .navbar-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.6rem !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+    max-height: calc(100vh - var(--navbar-height, 80px)) !important;
+    padding: 1rem !important;
+    margin: auto !important;
+    margin-top: 0 !important;
+    justify-content: flex-start;
+  }
+
+  /* Staggered nav items entrance */
+  .navbar-collapse .nav-item {
     opacity: 0;
     transform: translateY(8px);
-    transition: opacity .34s cubic-bezier(.2, .9, .2, 1), transform .34s cubic-bezier(.2, .9, .2, 1);
+    flex-shrink: 0;
+    padding: 0.75rem 1rem !important;
+    border-radius: 0.5rem;
+    cursor: pointer;
   }
 
-  .navbar-collapse.show .navbar-nav .nav-link {
-    opacity: 1;
+  /* Show staggered items after collapse enters */
+  .navbar-collapse.show .nav-item {
+    opacity: 0;
     transform: translateY(0);
+    animation: item-stagger 0.4s ease-out forwards;
+    animation-delay: calc(var(--stagger-index, 0) * 80ms + 300ms);
   }
 
-  /* stagger up to 8 items; adjust delays if you have more links */
-  .navbar-collapse.show .navbar-nav .nav-link:nth-child(1) {
-    transition-delay: 1s;
-  }
-
-  .navbar-collapse.show .navbar-nav .nav-link:nth-child(2) {
-    transition-delay: 1.06s;
-  }
-
-  .navbar-collapse.show .navbar-nav .nav-link:nth-child(3) {
-    transition-delay: 1.12s;
-  }
-
-  .navbar-collapse.show .navbar-nav .nav-link:nth-child(4) {
-    transition-delay: 1.18s;
-  }
-
-  .navbar-collapse.show .navbar-nav .nav-link:nth-child(5) {
-    transition-delay: 1.24s;
-  }
-
-  .navbar-collapse.show .navbar-nav .nav-link:nth-child(6) {
-    transition-delay: 1.30s;
-  }
-
-  .navbar-collapse.show .navbar-nav .nav-link:nth-child(7) {
-    transition-delay: 1.36s;
-  }
-
-  .navbar-collapse.show .navbar-nav .nav-link:nth-child(8) {
-    transition-delay: 1.40s;
-  }
-
-  /* subtle brand/close polish */
-  .navbar .navbar-brand {
-    transition: transform .32s ease, opacity .32s ease;
-  }
-
-  .navbar-collapse.show~.container .navbar-brand,
-  .navbar-collapse.show .navbar-brand {
-    transform: translateY(2px) scale(0.995);
-  }
-
-  .navbar-collapse .mobile-nav-close {
-    position: absolute;
-    top: 0.6rem;
-    right: 0.9rem;
-    width: 2.2rem;
-    height: 2.2rem;
-    z-index: 1075;
-    background-color: rgba(255, 255, 255, 0.02);
-    /* subtle */
-    border-radius: 0.25rem;
-    -webkit-animation: slide-out-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530);
-    animation: slide-out-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530);
-    opacity: 0.95;
-  }
-
-  .navbar-collapse .mobile-nav-close:hover {
-    -webkit-animation: slide-out-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-    animation: slide-out-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-    opacity: 1;
-  }
-
-  /* ensure slide-out keyframes are available for mobile close */
-  @keyframes slide-out-right {
-    0% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-
-    100% {
-      transform: translateX(1200px);
+  /* Item stagger entrance keyframes */
+  @keyframes item-stagger {
+    from {
       opacity: 0;
+      transform: translateY(8px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
-  /* closing state: play slide-out then let JS call bsCollapse.hide() */
-  .navbar-collapse.closing {
-    animation: slide-out-right 0.56s cubic-bezier(.25, .46, .45, .94) both;
-    will-change: transform, opacity;
+  /* Item exit keyframes */
+  @keyframes item-stagger-out {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    to {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
   }
 
-  /* prevent Bootstrap .collapsing height animation from conflicting */
-  .navbar-collapse.collapsing {
-    height: auto !important;
-    overflow: hidden !important;
-    transition: none !important;
+  /* Exit stagger for items on close */
+  .navbar-collapse.exit .nav-item {
+    animation: item-stagger-out 0.3s ease-in forwards;
+    animation-delay: calc((var(--stagger-index, 0) - var(--total-items, 8)) * 80ms);
   }
 
-  /* ensure show state is visible (no long delays) */
-  .navbar-collapse {
-    transition: transform .36s cubic-bezier(.2, .8, .2, 1), opacity .28s ease;
-    transform-origin: top center;
+  /* Hover animation for nav items */
+  .navbar-collapse .nav-item:hover {
+    background-color: rgba(13, 107, 104, 0.1) !important;
+    transform: translateX(8px);
+    color: var(--bs-primary) !important;
   }
 
-  .navbar-collapse.show {
-    transform: translateY(0) scaleY(1);
-    opacity: 1;
+  .navbar-collapse.show .nav-item:hover {
+    background-color: rgba(13, 107, 104, 0.15) !important;
+    transform: translateX(8px);
   }
-  .sticky-top {
-    transition-duration: .22s!important;
+
+  /* Hide toggler when open */
+  .navbar-toggler.nav-hidden,
+  body.nav-open .navbar-toggler {
+    display: none !important;
+    pointer-events: none !important;
   }
-  /* ...existing code... */
+
+  /* Mobile close button */
+  .mobile-nav-close {
+    position: fixed !important;
+    top: calc((var(--navbar-height, 80px) / 2) - 18px) !important;
+    right: 12px !important;
+    z-index: 1210 !important;
+    display: none !important;
+    pointer-events: none !important;
+    width: 36px !important;
+    height: 36px !important;
+    background: transparent !important;
+    border: 0 !important;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  body.nav-open .mobile-nav-close,
+  .navbar-collapse.show .mobile-nav-close {
+    display: flex !important;
+    pointer-events: auto !important;
+  }
+
+  .mobile-nav-close::before {
+    content: '\2715';
+    color: #0c605e;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 1200px) {
+
+  /* Make the tree block fluid and allow internal scrolling if needed */
+  .tree {
+    width: 100% !important;
+    box-sizing: border-box;
+    padding: .5rem 0.75rem;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: auto;
+    align-items: center;
+    flex: 1 1 1000px;
+  }
+
+  .tree ul {
+    list-style: none;
+    margin: auto;
+    align-items: center;
+    justify-self: center;
+    flex: 1 1 1000px;
+  }
+
+  .tree ul li {
+    margin: auto;
+    align-items: center;
+    justify-self: center;
+  }
+
+  .tree li {
+    margin: 0.45rem 0;
+    padding-left: 0.25rem;
+  }
+
+  /* Headings act as toggles and remain readable on small screens */
+  .tree h4,
+  .tree h5,
+  .tree h6 {
+    margin: 0;
+    font-weight: 600;
+    line-height: 1.2;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    padding-right: 1.6rem;
+    color: #0b5653;
+  }
+
+  /* small indicator (+ / −) using pseudo element */
+  .tree h4::after,
+  .tree h5::after,
+  .tree h6::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 700;
+    color: #0b5653;
+    font-size: 1rem;
+  }
+
+  /* collapsed children: hide nested lists */
+  .tree li>ul {
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .32s ease;
+  }
+
+  /* expanded state */
+  .tree li.expanded>ul {
+    display: block;
+    max-height: 2000px;
+    /* large enough to reveal content; transition animates */
+  }
+
+  /* indicator when expanded */
+  .tree li.expanded>h4::after,
+  .tree li.expanded>h5::after,
+  .tree li.expanded>h6::after {
+    content: '−';
+  }
+
+  /* Improve spacing of leaf text */
+  .tree li h6 {
+    font-weight: 500;
+    font-size: .95rem;
+    color: #333;
+  }
+
+  /* Reduce font-size slightly for small screens */
+  .tree {
+    font-size: 0.95rem;
+  }
+}
+
+
+@media(max-width:1200px) {
+  .iq-features {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+  }
 }
